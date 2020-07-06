@@ -4,7 +4,8 @@ console.log('App.js is running!');
 
 var app = {
     title: 'Indecision App',
-    subtitle: 'Put your life in the hands of a computer'
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['One', 'Two']
 
     // JSX - JavaScript XML
 };var template = React.createElement(
@@ -15,10 +16,15 @@ var app = {
         null,
         app.title
     ),
-    React.createElement(
+    app.subtitle && React.createElement(
         'p',
         null,
         app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
     ),
     React.createElement(
         'ol',
@@ -36,33 +42,23 @@ var app = {
     )
 );
 
-var user = {
-    name: 'Andrew',
-    age: 26,
-    location: 'Philadelphia'
-};
+var count = 0;
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name
+        'Count: ',
+        count
     ),
     React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
+        'button',
+        { id: 'my-id', className: 'button' },
+        '+1'
     )
 );
-
+console.log(templateTwo);
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
