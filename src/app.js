@@ -1,32 +1,52 @@
-console.log('App.js is running!')
-
-const app = {
-    title: 'Indecision App',
-    subtitle: 'Put your life in the hands of a computer',
-    options: ['One', 'Two']
+class Header extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Indecision</h1>
+                <h2>Put your life in the hands of a computer</h2>
+            </div>
+        )
+    }
 }
 
-// JSX - JavaScript XML
-const template = (
+class Action extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>What should I do?</button>
+            </div>
+        )
+    }
+
+}
+
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                Options component here
+            </div>
+        )
+    }
+}
+
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+                AddOptions component here
+            </div>
+        )
+    }
+ }
+
+const jsx = (
     <div>
-        <h1>{app.title}</h1>
-        {app.subtitle && <p>{app.subtitle}</p>}
-        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-        <ol>
-            <li>Item one</li>
-            <li>Item two</li>
-        </ol>
+        <Header />
+        <Action />
+        <Options />
+        <AddOption />
     </div>
 )
 
-let count = 0
-const templateTwo = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button id='my-id' className="button">+1</button>
-    </div>
-)
-console.log(templateTwo)
-var appRoot = document.getElementById('app')
-
-ReactDOM.render(templateTwo, appRoot)
+ReactDOM.render(jsx, document.getElementById('app'))
